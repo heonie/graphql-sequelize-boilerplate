@@ -1,0 +1,5 @@
+{
+  "delay": 500,
+  "watch": ["src"],
+  "ext": "js graphql"
+}

@@ -1,0 +1,30 @@
+{
+  "name": "graphql-server-boilerplate",
+  "version": "1.0.0",
+  "repository": "https://github.com/heonie/graphql-server-boilerplate",
+  "author": "Kookheon Kim(heonie@gmail.com)",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "dev": "nodemon --exec babel-node src/index.js",
+    "build": "babel src -d dist",
+    "start": "node dist"
+  },
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "errorhandler": "^1.5.1",
+    "express": "^4.17.1",
+    "graphql-tools": "^7.0.2",
+    "merge-graphql-schemas": "^1.7.8",
+    "winston": "^3.3.3",
+    "winston-daily-rotate-file": "^4.5.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.12.8",
+    "@babel/core": "^7.12.9",
+    "@babel/node": "^7.12.6",
+    "@babel/plugin-transform-runtime": "^7.12.1",
+    "@babel/preset-env": "^7.12.7",
+    "nodemon": "^2.0.6"
+  }
+}
