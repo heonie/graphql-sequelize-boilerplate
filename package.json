@@ -6,17 +6,26 @@
   "license": "MIT",
   "private": true,
   "scripts": {
+    "predev": "yarn create-dev-db",
     "dev": "nodemon --exec babel-node src/index.js",
+    "create-dev-db": "shx touch ./storage/development.sqlite",
+    "drop-dev-db": "shx rm ./storage/development.sqlite",
     "build": "babel src -d dist",
     "start": "node dist"
   },
   "dependencies": {
     "apollo-server-express": "^2.19.0",
+    "bcrypt-nodejs": "^0.0.3",
     "dotenv": "^8.2.0",
     "errorhandler": "^1.5.1",
     "express": "^4.17.1",
     "graphql-tools": "^7.0.2",
     "merge-graphql-schemas": "^1.7.8",
+    "pg": "^8.5.1",
+    "pg-hstore": "^2.3.3",
+    "sequelize": "^6.3.5",
+    "shx": "^0.3.3",
+    "sqlite3": "^5.0.0",
     "winston": "^3.3.3",
     "winston-daily-rotate-file": "^4.5.0"
   },

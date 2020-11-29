@@ -3,8 +3,14 @@ import http from 'http';
 import errorhandler from 'errorhandler';
 import { ApolloServer } from 'apollo-server-express';
 import schema from '../graphql/schema';
+import { startDB } from '../database';
 
-export const startServer = () => {
+const formatError = (err) => {
+    console.dir(err, {depth: 5});
+    return err;
+}
+
+export const startServer = async () => {
     const app = express();
     const port = process.env.PORT || 4000;
 
@@ -13,7 +19,8 @@ export const startServer = () => {
     }
 
     const apolloConfig = {
-        schema
+        schema,
+        formatError
     };
 
     const apolloRegistration = {
@@ -27,6 +34,9 @@ export const startServer = () => {
     apollo.applyMiddleware(apolloRegistration);
 
     const server = http.createServer(app);
+
+    await startDB();
+
     server.listen({ port }, () => {
         console.log(`🚀 GraphQL server ready at http://localhost:${port}/graphql`);
     });
