@@ -19,7 +19,7 @@ yarn start
 ```
 
 ## Environment Variables
-For running on the `production` mode, you have to these environment variables:
+For running on the `production` mode, you have to set these environment variables:
 
 * NODE_ENV=production
 * DB_HOST
