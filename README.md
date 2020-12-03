@@ -1,4 +1,4 @@
-# GraphQL Server boilerplate
+# GraphQL with Sequelize ORM boilerplate
 
 ApolloServer + Express + Sequelize
 

@@ -1,7 +1,7 @@
 {
-  "name": "graphql-server-boilerplate",
+  "name": "graphql-sequelize-boilerplate",
   "version": "1.0.0",
-  "repository": "https://github.com/heonie/graphql-server-boilerplate",
+  "repository": "https://github.com/heonie/graphql-sequelize-boilerplate",
   "author": "Kookheon Kim(heonie@gmail.com)",
   "license": "MIT",
   "private": true,
