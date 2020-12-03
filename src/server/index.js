@@ -3,6 +3,7 @@ import http from 'http';
 import { ApolloServer } from 'apollo-server-express';
 import schema from '../graphql/schema';
 import { startDB } from '../database';
+import {authenticateReq} from "../passport";
 
 const formatError = (err) => {
     console.dir(err, {depth: 5});
@@ -13,10 +14,16 @@ export const startServer = async () => {
     const app = express();
     const port = process.env.PORT || 4000;
 
+    app.use(authenticateReq);
+
     const apolloConfig = {
         schema,
-        formatError
+        formatError,
+        context: ({req}) => ({
+            request: req
+        })
     };
+    const apollo = new ApolloServer(apolloConfig);
 
     const apolloRegistration = {
         app,
@@ -24,8 +31,6 @@ export const startServer = async () => {
         cors: true,
         bodyParserConfig: true,
     };
-
-    const apollo = new ApolloServer(apolloConfig);
     apollo.applyMiddleware(apolloRegistration);
 
     const server = http.createServer(app);

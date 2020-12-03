@@ -10,3 +10,4 @@ export const bcryptPassword = (password) => {
 export const bcryptComparePassword = (pw, hash) => (
     bcrypt.compareSync(pw, hash)
 );
+
